@@ -12,7 +12,7 @@ class FirebaseAuthDataSource implements AuthDataSource {
   Future<void> signInAnonymously() async {
     try {
       await _auth.signInAnonymously();
-    } on FirebaseAuthException catch (e) {
+    } on FirebaseAuthException {
       throw NetworkError();
     }
   }

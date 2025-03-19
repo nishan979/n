@@ -6,26 +6,15 @@ import 'core/theme.dart';
 import 'features/post/presentation.dart';
 
 void main() async {
-  // Ensure Flutter binding is initialized
   WidgetsFlutterBinding.ensureInitialized();
-
-  try {
-    await Firebase.initializeApp();
-    print('Firebase initialized successfully');
-  } catch (e) {
-    print('Firebase initialization failed: $e');
-  }
-  // Initialize Firebase
-  // await Firebase.initializeApp();
-
-  // Initialize dependency injection
-  await initializeDependencies();
-
-  // Run the app
+  await Firebase.initializeApp();
+  await initializeDependencies(); // Initialize GetIt dependencies
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -41,6 +30,8 @@ class MyApp extends StatelessWidget {
 
 class HomeScreen extends StatelessWidget {
   final _controller = TextEditingController();
+
+  HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
